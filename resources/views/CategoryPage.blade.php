@@ -62,11 +62,14 @@
                         <li class="nav-item dropdown">
                                 <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                @foreach($subcategories as $subCategory)
-                                  
-                                   	{{ $subCategory->name }} 	
+                                @if($category->childern()->isNotEmpty())
+                                    @foreach($category->childern() as $subCategory)
+
+                                        {{ $subCategory->name }} 	
+                                    @endforeach
+                                @endif
                                 </a>
-                               @endforeach
+                             
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                    
                                     <li class="nav-item dropdown">
