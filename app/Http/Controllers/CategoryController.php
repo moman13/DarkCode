@@ -16,6 +16,15 @@ class CategoryController extends Controller
     	$products = Product::all();
 	    return view('CategoryPage',compact('categories','subcategories','products'));
     }
+public function store(Request $request)
+    {
+        //create new categories
+        $create = Category::create([
+        'name'=>$request->name,
+        //here if it main Category has 0 else has the id 
+        'parent_id'=>request->parent_id
+        ]);
+    }
 
   
 }
