@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function index()
     {
 
-    	$categories = Category::all();
+    	$categories = Category::where('parent_id',0)->get();
     	$subcategories = Subcategory::all();
     	$products = Product::all();
 	    return view('CategoryPage',compact('categories','subcategories','products'));
